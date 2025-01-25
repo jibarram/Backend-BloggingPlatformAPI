@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "6a7ad590-5836-48d2-9918-f819decd70c2",
+		"name": "Blog API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24094907"
+	},
+	"item": [
+		{
+			"name": "Create-ValidPost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Valid Blog Post\",\r\n  \"content\": \"This is valid content with no code.\",\r\n  \"category\": \"Technology\",\r\n  \"tags\": [\"Innovation\", \"AI\"]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create-BadRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Post with <script>alert('hack')</script>\",\r\n  \"content\": \"This is {JSON} content.\",\r\n  \"category\": \"Tech[SQL Injection]\",\r\n  \"tags\": [\"Tag with <code>\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/posts?term=tech",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "term",
+							"value": "tech"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReadByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/posts/67952b9aab3efdaeb6875dd2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts",
+						"67952b9aab3efdaeb6875dd2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Updated Blog Post\",\r\n  \"content\": \"This is the updated content.\",\r\n  \"category\": \"Programming\",\r\n  \"tags\": [\"Update\", \"Programming\"]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/posts/67952b70ab3efdaeb6875dcc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts",
+						"67952b70ab3efdaeb6875dcc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/posts/67952b70ab3efdaeb6875dcc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts",
+						"67952b70ab3efdaeb6875dcc"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
